@@ -1,4 +1,4 @@
-# technical solution
+# Technical solution
 
 ## Preliminary Analysis
 
@@ -13,15 +13,39 @@
 9. `npm run lint` generates a TypeScript-related warning, as TypeScript version 5.2.2 is not officially supported (possible trade-off).
 
 ## High-Level Procedure
-1. Fix TypeScript configuration
+1. Update TypeScript configuration
 2. Introduce project structure by using dynamic routes [locale] and add /us route
 3. Set up lib/ utilities: API client, currency/locale formatters
 4. Refactor into reusable, semantic, accessible components
 5. Migrate to products API.
-6. Fix and stabilize existing tests (specific selectors)
+6. Fix and stabilise existing tests (specific selectors)
 7. Implement checkout page and use contexts
 8. Integrate more-products API asynchronously after initial load
 9. Set up GitHub Actions for tests + deploy on push
 
-## Testing Strategy
-Tests are written or reviewed alongside each feature, not as a separate phase.
+## Trade-offs
+
+1. **TypeScript version warning not addressed.** `npm run lint` warns 
+   that TypeScript 5.2.2 is not officially supported. If everything 
+   works as expected, this will be treated as technical debt rather than a 
+   blocker.
+2. **Minimal UI changes.** No design system or visual redesign is 
+   introduced, as no UI/UX requirements were specified.
+3. **Basket state is not persisted.** The basket lives only in React 
+   Context and resets on page refresh. Persistence (localStorage, 
+   cookies, or server-side sessions) is out of scope but would be the 
+   natural next step for a production scenario.
+4. **Custom i18n solution instead of a library.** Keeps dependencies 
+   minimal and is sufficient for two locales. A dedicated library 
+   (`next-intl`, `next-i18next`) would be preferable when scaling to 
+   many languages with complex pluralisation rules.
+
+## Design Principles
+
+- **Scalable, not over-engineered.** Favor small, well-placed 
+  extension points over premature abstractions.
+- **Server-first.** Leverage Next.js App Router for data fetching and 
+  rendering on the server, avoiding client-side loading states where 
+  possible.
+- **Tests close to features.** Tests are written alongside the code 
+  they cover.
