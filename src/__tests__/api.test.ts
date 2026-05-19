@@ -53,7 +53,7 @@ describe('fetchMoreProducts', () => {
     mockFetchSuccess(mockMoreProducts)
     await fetchMoreProducts()
     expect(fetch).toHaveBeenCalledWith(
-      `${API_BASE}/more-products`,
+      '/api/more-products',
       expect.any(Object)
     )
   })

@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.summary {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin: 0 0 1rem;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.back:hover {
+  opacity: 1;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+
+.table tfoot td {
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+  padding-top: 1rem;
+}
+
+.table td:last-child,
+.table th:last-child {
+  text-align: right;
+}
+
+.checkout_back {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.7;
+}

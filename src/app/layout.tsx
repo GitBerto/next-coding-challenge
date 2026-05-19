@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { CartProvider } from '@/context/CartContext'
+import { ProductsProvider } from '@/context/ProductsContext'
 import { Header } from '@/components/Header'
 import styles from './page.module.css'
 
@@ -19,10 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-          <main className={styles.main}>
-            <Header />
-            {children}
-          </main>
+        <ProductsProvider>
+          <CartProvider>
+            <main className={styles.main}>
+              <Header />
+              {children}
+            </main>
+          </CartProvider>
+        </ProductsProvider>
       </body>
     </html>
   )

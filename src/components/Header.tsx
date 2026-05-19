@@ -1,5 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation'
+import { useCart } from '@/context/CartContext'
 import { BasketButton } from './BasketButton'
 import styles from '@/app/page.module.css'
 
@@ -10,13 +11,15 @@ function getCheckoutHref(pathname: string): string {
 
 export function Header() {
   const pathname = usePathname()
+  const { totalItems } = useCart()
+  const isCheckout = pathname.endsWith('/checkout')
   const checkoutHref = getCheckoutHref(pathname)
 
   return (
     <header className={styles.description}>
       <p>Michael&apos;s Amazing Web Store</p>
       <div>
-        <BasketButton href={checkoutHref}  />
+        <BasketButton count={totalItems} href={checkoutHref} disabled={isCheckout} />
       </div>
     </header>
   )

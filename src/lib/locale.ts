@@ -14,10 +14,13 @@ export const localeConfig: Record<Locale, LocaleConfig> = {
 
 export function resolveProduct(raw: RawProduct, locale: Locale): Product {
   const config = localeConfig[locale]
+  const priceAmount = raw.price[config.priceKey]
   return {
     id: raw.id,
     name: raw.name[config.nameKey],
-    price: formatPrice(raw.price[config.priceKey], config.currency),
+    price: formatPrice(priceAmount, config.currency),
+    priceAmount,
+    currency: config.currency,
     stock: raw.stock,
   }
 }

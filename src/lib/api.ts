@@ -10,7 +10,7 @@ export async function fetchProducts(): Promise<RawProduct[]> {
 }
 
 export async function fetchMoreProducts(): Promise<RawProduct[]> {
-  const res = await fetch(`${API_BASE}/more-products`, { cache: 'no-store' })
+  const res = await fetch('/api/more-products', { cache: 'no-store' })
   if (!res.ok) throw new Error('Failed to fetch more products')
   const data: ApiResponse = await res.json()
   return data.products
