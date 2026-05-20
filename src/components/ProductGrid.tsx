@@ -53,7 +53,7 @@ export function ProductGrid({ products, locale }: Props) {
   }, [locale]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div>
+    <>
       <div className={styles.grid}>
         {allProducts.map(product => (
           <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
@@ -62,6 +62,6 @@ export function ProductGrid({ products, locale }: Props) {
       {loadingMore && (
         <p aria-live="polite" aria-busy="true">Looking for more products...</p>
       )}
-    </div>
+    </>
   )
 }

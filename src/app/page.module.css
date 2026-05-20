@@ -40,6 +40,7 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   max-width: 100%;
   width: var(--max-width);
+  width: 100%;
 }
 
 .basket,
@@ -112,7 +113,7 @@
 
   .basket,
   .card {
-    padding: 1rem 0;
+    padding: 1rem;
   }
 
   .card h2 {
