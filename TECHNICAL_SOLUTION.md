@@ -40,6 +40,16 @@
    (`next-intl`, `next-i18next`) would be preferable when scaling to 
    many languages with complex pluralisation rules.
 
+## Deployment
+
+The application is deployed on **Netlify** at [dulcet-jalebi-182af1.netlify.app](https://dulcet-jalebi-182af1.netlify.app).
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) is configured to:
+1. **Run all tests** on every push to `main` and on manual trigger (`workflow_dispatch`)
+2. **Deploy to Netlify** automatically after tests pass, using the Netlify CLI
+
+The deploy is gated behind the test job — if any test fails, the deployment is blocked. The workflow can also be triggered manually from the GitHub Actions UI, allowing deployment from any branch.
+
 ## Design Principles
 
 - **Scalable, not over-engineered.** Favor small, well-placed 
