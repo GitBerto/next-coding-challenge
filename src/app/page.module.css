@@ -131,11 +131,7 @@
     font-size: 0.8rem;
   }
 
-  .description a {
-    padding: 1rem;
-  }
-
-  .description p,
+  .description h1,
   .description div {
     display: flex;
     justify-content: center;
@@ -143,10 +139,9 @@
     width: 100%;
   }
 
-  .description p {
+  .description h1 {
     align-items: center;
     inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
@@ -157,6 +152,12 @@
     );
     background-clip: padding-box;
     backdrop-filter: blur(24px);
+    font-size: 1rem;
+  }
+
+  .description h1 a {
+    background: none;
+    border: none;
   }
 
   .description div {

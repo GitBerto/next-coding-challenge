@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header className={styles.description}>
-      <p><Link href={homeHref}>Michael&apos;s Amazing Web Store</Link></p>
+      <h1><Link href={homeHref}>Michael&apos;s Amazing Web Store</Link></h1>
       <div>
         <BasketButton count={totalItems} href={checkoutHref} disabled={isCheckout} />
       </div>
