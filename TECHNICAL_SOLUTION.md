@@ -59,3 +59,6 @@ The deploy is gated behind the test job — if any test fails, the deployment is
   possible.
 - **Tests close to features.** Tests are written alongside the code 
   they cover.
+
+  ## Fundings
+  - **Netifly compatibily issue.** Added netlify/plugin-nextjs and bumped next version to required one.
