@@ -1,6 +1,6 @@
 import { fetchProducts, fetchMoreProducts } from '@/lib/api'
 
-const API_BASE = process.env.API_BASE_URL
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL
 import { mockProducts, mockMoreProducts } from './__fixtures__/products'
 
 function mockFetchSuccess(products = mockProducts) {
@@ -53,7 +53,7 @@ describe('fetchMoreProducts', () => {
     mockFetchSuccess(mockMoreProducts)
     await fetchMoreProducts()
     expect(fetch).toHaveBeenCalledWith(
-      '/api/more-products',
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/more-products`,
       expect.any(Object)
     )
   })
