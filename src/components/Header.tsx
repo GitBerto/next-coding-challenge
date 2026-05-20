@@ -1,23 +1,26 @@
 'use client';
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCart } from '@/context/CartContext'
 import { BasketButton } from './BasketButton'
 import styles from '@/app/page.module.css'
 
-function getCheckoutHref(pathname: string): string {
-  const locale = pathname.split('/')[1]
-  return locale && locale !== 'checkout' ? `/${locale}/checkout` : '/checkout'
+function getLocalePrefix(pathname: string): string | null {
+  const segment = pathname.split('/')[1]
+  return /^[a-z]{2}$/.test(segment) ? segment : null
 }
 
 export function Header() {
   const pathname = usePathname()
   const { totalItems } = useCart()
+  const locale = getLocalePrefix(pathname)
   const isCheckout = pathname.endsWith('/checkout')
-  const checkoutHref = getCheckoutHref(pathname)
+  const checkoutHref = locale ? `/${locale}/checkout` : '/checkout'
+  const homeHref = locale ? `/${locale}` : '/'
 
   return (
     <header className={styles.description}>
-      <p>Michael&apos;s Amazing Web Store</p>
+      <p><Link href={homeHref}>Michael&apos;s Amazing Web Store</Link></p>
       <div>
         <BasketButton count={totalItems} href={checkoutHref} disabled={isCheckout} />
       </div>

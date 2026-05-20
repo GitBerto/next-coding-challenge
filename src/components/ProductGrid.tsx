@@ -60,7 +60,7 @@ export function ProductGrid({ products, locale }: Props) {
         ))}
       </div>
       {loadingMore && (
-        <p aria-live="polite" aria-busy="true">Looking for more products...</p>
+        <p className={styles.loadMore} aria-live="polite" aria-busy="true">Looking for more products...</p>
       )}
     </>
   )

@@ -49,7 +49,7 @@ export default function CheckoutPage() {
       )}
 
       <Link href="/" aria-label="Continue shopping" title="Continue shopping" className={styles.back}>
-        Continue shopping
+        &lt; Continue shopping
       </Link>
     </div>
   )
